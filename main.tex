@@ -1,0 +1,117 @@
+% Copyright Xucong Lyu
+% Version 1.0
+% 本模板基于《河南师范大学研究生学位论文格式要求（2026年更新）》制作
+% 本模板适用于硕士及博士研究生毕业论文的写作
+% 编译：xelatex
+
+% 选项 science（理工）或 humanities（人文社科）
+\documentclass[science]{hnnuthesis}
+
+% 论文版本开关，注释掉%\blindreviewtrue ，论文切换为完整版，不注释为盲审版
+% 盲审版隐去了作者姓名、导师姓名、学号，以及致谢、发表文章目录和独创性声明等
+\newif\ifblindreview
+%\blindreviewtrue         % 盲审版
+
+
+%以下封面及论文信息部分
+\providecommand{\HNNUtitlebreak}{}
+\hnnusetup{title={题目题目题目题目题目题目题目
+                  \HNNUtitlebreak%题目过长使用此代码换行
+                   题目题目题目},
+           englishtitle={title title title title title title title title title title title title},
+           author={张\quad 三},
+           studentid={2XXXXXXXX},
+           classification={Q178},
+           major={某某、某某},
+           direction={某某方向},
+           degree={（学术学位）},
+           degreecategory={农学博士},
+           level={博士},
+           supervisor={李\quad 四\quad 教授},
+           date={二〇二七年五月},
+           dateArabic={2027年5月},
+           keywords={学位论文；排版规范；LaTeX},
+           enkeywords={thesis, typesetting, LaTeX},
+englishdegree={Doctor of Agriculture},%英文封面的学位说明
+englishauthor={Zhang San},
+englishsupervisor={Prof. Li Si},
+englishdate={June, 2027}}
+
+% 编译盲审需要隐去的部分
+\ifblindreview
+  \renewcommand{\HNNUauthor}{}
+  \renewcommand{\HNNUsupervisor}{}
+  \renewcommand{\HNNUenglishauthor}{}
+  \renewcommand{\HNNUenglishsupervisor}{}
+  \renewcommand{\HNNUstudentid}{}
+  \hypersetup{pdfauthor={}}
+\fi
+
+
+% 以下是论文主体部分
+\begin{document}
+\hnnumakecover
+\hnnutitlepage
+\hnnufrontmatter
+
+% 中文摘要
+\begin{hnnuabstract}
+本文以河南师范大学研究生学位论文格式要求为依据，构建可重复使用的学位论文排版模板。研究方法包括规范分析、样式设计和编译验证。此处为演示文本，正式提交时应替换为完整摘要。
+\end{hnnuabstract}
+
+% 英文摘要
+\begin{hnnuenglishabstract}
+This sample demonstrates a thesis template based on the graduate thesis formatting requirements of Henan Normal University. Replace this paragraph with your actual English abstract corresponding to the Chinese version.
+\end{hnnuenglishabstract}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{目\quad 录}
+\hnnutableofcontents
+% 图表较多时启用以下清单：
+%\listoffigures
+%\cleardoublepage
+%\listoftables
+%\cleardoublepage
+%\hnnuchapter{主要符号表}
+%\noindent $x$：自变量；$y$：因变量。
+\hnnumainmatter
+
+% 以下为论文正文
+% 由于毕业论文篇幅较长，各小节分开编写较好，最后引入主体
+\include{chapters/01}
+\include{chapters/02}
+\include{chapters/03}
+\include{chapters/04}
+\include{chapters/05}
+
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+\bibliography{references}
+
+% ========================================
+% 以下内容仅最终版显示
+% ========================================
+\ifblindreview
+  % 盲审版：参考文献后直接结束
+\else
+  % 如有附录，放在这里
+  \appendix
+  % 致谢
+  \hnnuacknowledgements{%
+    感谢导师在论文选题、研究与写作过程中给予的指导。
+  }
+
+  % 攻读学位期间发表的学术论文目录
+  \hnnupublications{%
+    \noindent [1] 示例论文信息。
+  }
+
+  % 独创性声明和论文使用授权说明
+  \hnnudeclarations
+
+\fi
+
+\end{document}

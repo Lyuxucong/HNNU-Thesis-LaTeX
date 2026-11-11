@@ -1,0 +1,45 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.xdv
+*.dvi
+*.fmt
+*.ilg
+*.ind
+*.idx
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.lol
+*.bak
+*.tmp
+
+# Editors / operating systems
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Personal manuscript PDFs: release selected PDFs manually
+main.pdf
+output.pdf
